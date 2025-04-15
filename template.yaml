@@ -6,7 +6,7 @@ Globals:
     Runtime: python3.12
     Tracing: Active
 Resources:
-  Dataframes:
+  Crawlers:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: seattle/
