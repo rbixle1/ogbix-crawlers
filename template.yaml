@@ -6,7 +6,7 @@ Globals:
     Runtime: python3.12
     Tracing: Active
 Resources:
-  Crawlers:
+  Seattle:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: seattle/
@@ -15,12 +15,12 @@ Resources:
       Timeout: 300
       Policies:  
       - AmazonS3FullAccess
-  # Keybuilder:
-  #   Type: AWS::Serverless::Function
-  #   Properties:
-  #     CodeUri: london/
-  #     Handler: london.handler                          
-  #     MemorySize: 3008
-  #     Timeout: 300
-  #     Policies: 
-  #     - AmazonS3ReadOnlyAccess
+  London:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: london/
+      Handler: london.handler                          
+      MemorySize: 3008
+      Timeout: 300
+      Policies: 
+      - AmazonS3ReadOnlyAccess
