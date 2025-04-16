@@ -12,6 +12,6 @@ RUN playwright install-deps
 
 WORKDIR /app
 
-COPY london.py .
+COPY paris.py .
 
-CMD ["python3", "london.py"]
+CMD ["python3", "paris.py"]

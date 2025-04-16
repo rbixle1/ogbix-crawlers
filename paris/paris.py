@@ -9,7 +9,9 @@ from datetime import timedelta
 s3_client = boto3.client('s3')
 bucket_name = 'tracks.json'
 
-def crawl_url(url, run_headless=True):
+def handler(event, context):
+    url = "https://www.ouifm.fr/"
+    run_headless = True
     print('lets go')
     with sync_playwright() as p:
         browser = p.firefox.launch(headless=run_headless, slow_mo=5000)
@@ -18,9 +20,6 @@ def crawl_url(url, run_headless=True):
         all_quotes = page.query_selector_all('.col-md-1')
  
         for quote in all_quotes:
-             broadcast = 'blah'
-        #     broadcast =  
-             
              band = ''
              song = ''
              if quote.query_selector('.album'):
@@ -45,8 +44,9 @@ def crawl_url(url, run_headless=True):
  
         browser.close()
  
+def main():
+    # Your main program logic here
+    handler(None, None)
 
-#https://www.ouifm.fr/retrouver-un-titre
-
-url = "https://www.ouifm.fr/"
-crawl_url(url, True)
+if __name__ == "__main__":
+    main()
