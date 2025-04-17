@@ -1,3 +1,18 @@
+
+# Seattle crawler is different in that it is cached as a Lambda.  
+# By being a lambda this application is released by using SAM.
+#
+# Building Local 
+# $ sam init   - series of prompts to set up interface to AWS use Custom Template Location.
+#
+# sam build and deploy to AWS
+# sam deploy --guided
+#
+# Running local  - from root directory of the git project
+# sam local invoke Seattle
+
+
+
 import urllib.request
 from time import gmtime, strftime
 from datetime import date
@@ -33,7 +48,7 @@ def handler(event, context):
       try: 
         air_date = (subdata['airdate'][0:10]).replace('-', '/')
         bucket_date = (air_date[5:] + '-' + air_date[0:4]).replace('/', '-')
-        print('AIR_DATE: ' + air_date + ' BUCKET Date:' + bucket_date )
+
         time = subdata['airdate'][11:16]
         artist = subdata['artist']['name'][:64]
         song = subdata['track']['name'][:64]

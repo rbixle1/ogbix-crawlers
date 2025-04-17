@@ -15,12 +15,3 @@ Resources:
       Timeout: 300
       Policies:  
       - AmazonS3FullAccess
-  London:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: london/
-      Handler: london.handler                          
-      MemorySize: 3008
-      Timeout: 300
-      Policies: 
-      - AmazonS3ReadOnlyAccess
